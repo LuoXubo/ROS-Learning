@@ -1,0 +1,2 @@
+rosbag
+-DCATKIN_DEVEL_PREFIX=/home/zino/lxb/Ros/ROS-Learning/roslearning/devel -DCMAKE_INSTALL_PREFIX=/home/zino/lxb/Ros/ROS-Learning/roslearning/install -G Unix Makefiles
