@@ -369,19 +369,6 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named helloworld
-
-# Build rule for target.
-helloworld: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 helloworld
-.PHONY : helloworld
-
-# fast build rule for target.
-helloworld/fast:
-	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/build
-.PHONY : helloworld/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -548,7 +535,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... helloworld"
 .PHONY : help
 
 

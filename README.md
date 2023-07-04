@@ -36,9 +36,35 @@ WorkSpace --- 自定义的工作空间
         |-- CMakeLists.txt: 编译的基本配置
 ```
 
+**步骤**
+* catkin_make
+* 进入src，执行catkin_create_pkg ROSNAME roscpp rospy std_msgs
+* 依次编写cpp和cmakelist文件
+* catkin_make
+* source ./devel/setup.bash
+* rosrun ROSNAME cpp
+
 * roscore === 是 ROS 的系统先决条件节点和程序的集合， 必须运行 roscore 才能使 ROS 节点进行通信。
 
 * rosrun 包名 可执行文件名 === 运行指定的ROS节点
 
 * roslaunch 包名 launch文件名 === 执行某个包下的 launch 文件
 
+---
+
+ROS 中的基本通信机制主要有如下三种实现策略:
+
+* 话题通信(发布订阅模式)
+
+* 服务通信(请求响应模式)
+
+* 参数服务器(参数共享模式)
+
+
+话题通信实现模型是比较复杂的，该模型如下图所示,该模型中涉及到三个角色:
+
+* ROS Master (管理者)
+* Talker (发布者)
+* Listener (订阅者)
+
+ROS Master 负责保管 Talker 和 Listener 注册的信息，并匹配话题相同的 Talker 与 Listener，帮助 Talker 与 Listener 建立连接，连接建立后，Talker 可以发布消息，且发布的消息会被 Listener 订阅。

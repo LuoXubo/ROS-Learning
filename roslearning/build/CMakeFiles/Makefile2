@@ -155,7 +155,7 @@ gtest/googlemock/gtest/clean: gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 # Directory level rules for directory rosbag
 
 # Recursive "all" directory target.
-rosbag/all: rosbag/CMakeFiles/helloworld.dir/all
+rosbag/all:
 
 .PHONY : rosbag/all
 
@@ -170,7 +170,6 @@ rosbag/clean: rosbag/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 rosbag/clean: rosbag/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 rosbag/clean: rosbag/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 rosbag/clean: rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-rosbag/clean: rosbag/CMakeFiles/helloworld.dir/clean
 rosbag/clean: rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 rosbag/clean: rosbag/CMakeFiles/roscpp_generate_messages_py.dir/clean
 rosbag/clean: rosbag/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
@@ -561,33 +560,6 @@ rosgraph_msgs_generate_messages_nodejs: rosbag/CMakeFiles/rosgraph_msgs_generate
 rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 .PHONY : rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target rosbag/CMakeFiles/helloworld.dir
-
-# All Build rule for target.
-rosbag/CMakeFiles/helloworld.dir/all:
-	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/depend
-	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=12,13 "Built target helloworld"
-.PHONY : rosbag/CMakeFiles/helloworld.dir/all
-
-# Build rule for subdir invocation for target.
-rosbag/CMakeFiles/helloworld.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/helloworld.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles 0
-.PHONY : rosbag/CMakeFiles/helloworld.dir/rule
-
-# Convenience name for target.
-helloworld: rosbag/CMakeFiles/helloworld.dir/rule
-
-.PHONY : helloworld
-
-# clean rule for target.
-rosbag/CMakeFiles/helloworld.dir/clean:
-	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/clean
-.PHONY : rosbag/CMakeFiles/helloworld.dir/clean
 
 #=============================================================================
 # Target rules for target rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir

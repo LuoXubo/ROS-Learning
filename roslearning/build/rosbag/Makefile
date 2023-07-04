@@ -262,21 +262,6 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-rosbag/CMakeFiles/helloworld.dir/rule:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/helloworld.dir/rule
-.PHONY : rosbag/CMakeFiles/helloworld.dir/rule
-
-# Convenience name for target.
-helloworld: rosbag/CMakeFiles/helloworld.dir/rule
-
-.PHONY : helloworld
-
-# fast build rule for target.
-helloworld/fast:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/build
-.PHONY : helloworld/fast
-
-# Convenience name for target.
 rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
@@ -426,33 +411,6 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make rosbag/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
-src/helloworld.o: src/helloworld.cpp.o
-
-.PHONY : src/helloworld.o
-
-# target to build an object file
-src/helloworld.cpp.o:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/src/helloworld.cpp.o
-.PHONY : src/helloworld.cpp.o
-
-src/helloworld.i: src/helloworld.cpp.i
-
-.PHONY : src/helloworld.i
-
-# target to preprocess a source file
-src/helloworld.cpp.i:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/src/helloworld.cpp.i
-.PHONY : src/helloworld.cpp.i
-
-src/helloworld.s: src/helloworld.cpp.s
-
-.PHONY : src/helloworld.s
-
-# target to generate assembly for a file
-src/helloworld.cpp.s:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/helloworld.dir/build.make rosbag/CMakeFiles/helloworld.dir/src/helloworld.cpp.s
-.PHONY : src/helloworld.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -481,10 +439,6 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... helloworld"
-	@echo "... src/helloworld.o"
-	@echo "... src/helloworld.i"
-	@echo "... src/helloworld.s"
 .PHONY : help
 
 

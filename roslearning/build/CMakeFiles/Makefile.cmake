@@ -18,7 +18,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/CMakeLists.txt"
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/CMakeLists.txt"
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/package.xml"
-  "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/scripts/helloworld.py"
+  "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/scripts/pub.py"
+  "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/scripts/sub.py"
   "/opt/ros/melodic/share/catkin/cmake/all.cmake"
   "/opt/ros/melodic/share/catkin/cmake/assert.cmake"
   "/opt/ros/melodic/share/catkin/cmake/atomic_configure_file.cmake"
@@ -188,7 +189,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "rosbag/catkin_generated/stamps/rosbag/pkg.pc.em.stamp"
   "rosbag/catkin_generated/installspace/rosbagConfig.cmake"
   "rosbag/catkin_generated/installspace/rosbagConfig-version.cmake"
-  "rosbag/catkin_generated/stamps/rosbag/helloworld.py.stamp"
+  "rosbag/catkin_generated/stamps/rosbag/pub.py.stamp"
+  "rosbag/catkin_generated/stamps/rosbag/sub.py.stamp"
   "rosbag/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -208,7 +210,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "rosbag/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
-  "rosbag/CMakeFiles/helloworld.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/std_msgs_generate_messages_eus.dir/DependInfo.cmake"

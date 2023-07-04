@@ -205,13 +205,35 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(helloworld
-  src/helloworld.cpp
-)
-target_link_libraries(helloworld
-  ${catkin_LIBRARIES}
-)
+# add_executable(helloworld
+#   src/helloworld.cpp
+# )
+# target_link_libraries(helloworld
+#   ${catkin_LIBRARIES}
+# )
 
-catkin_install_python(PROGRAMS scripts/helloworld.py
+# catkin_install_python(PROGRAMS scripts/helloworld.py
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
+
+# add_executable(hello_pub
+#   src/pub.cpp
+# )
+
+# add_executable(hello_sub
+#   src/sub.cpp
+# )
+
+# target_link_libraries(hello_pub
+#   ${catkin_LIBRARIES}
+# )
+
+# target_link_libraries(hello_sub
+#   ${catkin_LIBRARIES}
+# )
+
+catkin_install_python(PROGRAMS
+  scripts/pub.py
+  scripts/sub.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
