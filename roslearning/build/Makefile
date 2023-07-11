@@ -304,6 +304,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named sub
+
+# Build rule for target.
+sub: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sub
+.PHONY : sub
+
+# fast build rule for target.
+sub/fast:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/build
+.PHONY : sub/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
 
 # Build rule for target.
@@ -315,6 +328,19 @@ std_msgs_generate_messages_py: cmake_check_build_system
 std_msgs_generate_messages_py/fast:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/build.make rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named odom_pub
+
+# Build rule for target.
+odom_pub: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 odom_pub
+.PHONY : odom_pub
+
+# fast build rule for target.
+odom_pub/fast:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/build
+.PHONY : odom_pub/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
@@ -460,6 +486,19 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named imu_pub
+
+# Build rule for target.
+imu_pub: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imu_pub
+.PHONY : imu_pub
+
+# fast build rule for target.
+imu_pub/fast:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/build
+.PHONY : imu_pub/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -535,6 +574,9 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... imu_pub"
+	@echo "... odom_pub"
+	@echo "... sub"
 .PHONY : help
 
 

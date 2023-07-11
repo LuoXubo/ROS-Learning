@@ -68,3 +68,11 @@ ROS 中的基本通信机制主要有如下三种实现策略:
 * Listener (订阅者)
 
 ROS Master 负责保管 Talker 和 Listener 注册的信息，并匹配话题相同的 Talker 与 Listener，帮助 Talker 与 Listener 建立连接，连接建立后，Talker 可以发布消息，且发布的消息会被 Listener 订阅。
+
+## 通信策略
+* 设置初始状态P
+* 接收到SLAM后，赋值给P
+* 接收Odom后，更新P
+* 直到下次接收到SLAM，赋值给P 
+
+imu 50Hz， slam 2Hz

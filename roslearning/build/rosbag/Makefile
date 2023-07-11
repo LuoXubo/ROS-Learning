@@ -187,6 +187,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+rosbag/CMakeFiles/sub.dir/rule:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/sub.dir/rule
+.PHONY : rosbag/CMakeFiles/sub.dir/rule
+
+# Convenience name for target.
+sub: rosbag/CMakeFiles/sub.dir/rule
+
+.PHONY : sub
+
+# fast build rule for target.
+sub/fast:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/build
+.PHONY : sub/fast
+
+# Convenience name for target.
 rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule
@@ -200,6 +215,21 @@ std_msgs_generate_messages_py: rosbag/CMakeFiles/std_msgs_generate_messages_py.d
 std_msgs_generate_messages_py/fast:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/build.make rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+rosbag/CMakeFiles/odom_pub.dir/rule:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/odom_pub.dir/rule
+.PHONY : rosbag/CMakeFiles/odom_pub.dir/rule
+
+# Convenience name for target.
+odom_pub: rosbag/CMakeFiles/odom_pub.dir/rule
+
+.PHONY : odom_pub
+
+# fast build rule for target.
+odom_pub/fast:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/build
+.PHONY : odom_pub/fast
 
 # Convenience name for target.
 rosbag/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
@@ -367,6 +397,21 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
+rosbag/CMakeFiles/imu_pub.dir/rule:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/imu_pub.dir/rule
+.PHONY : rosbag/CMakeFiles/imu_pub.dir/rule
+
+# Convenience name for target.
+imu_pub: rosbag/CMakeFiles/imu_pub.dir/rule
+
+.PHONY : imu_pub
+
+# fast build rule for target.
+imu_pub/fast:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/build
+.PHONY : imu_pub/fast
+
+# Convenience name for target.
 rosbag/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : rosbag/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
@@ -411,6 +456,87 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make rosbag/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+src/pubimu.o: src/pubimu.cpp.o
+
+.PHONY : src/pubimu.o
+
+# target to build an object file
+src/pubimu.cpp.o:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/src/pubimu.cpp.o
+.PHONY : src/pubimu.cpp.o
+
+src/pubimu.i: src/pubimu.cpp.i
+
+.PHONY : src/pubimu.i
+
+# target to preprocess a source file
+src/pubimu.cpp.i:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/src/pubimu.cpp.i
+.PHONY : src/pubimu.cpp.i
+
+src/pubimu.s: src/pubimu.cpp.s
+
+.PHONY : src/pubimu.s
+
+# target to generate assembly for a file
+src/pubimu.cpp.s:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/src/pubimu.cpp.s
+.PHONY : src/pubimu.cpp.s
+
+src/pubodom.o: src/pubodom.cpp.o
+
+.PHONY : src/pubodom.o
+
+# target to build an object file
+src/pubodom.cpp.o:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/src/pubodom.cpp.o
+.PHONY : src/pubodom.cpp.o
+
+src/pubodom.i: src/pubodom.cpp.i
+
+.PHONY : src/pubodom.i
+
+# target to preprocess a source file
+src/pubodom.cpp.i:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/src/pubodom.cpp.i
+.PHONY : src/pubodom.cpp.i
+
+src/pubodom.s: src/pubodom.cpp.s
+
+.PHONY : src/pubodom.s
+
+# target to generate assembly for a file
+src/pubodom.cpp.s:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/src/pubodom.cpp.s
+.PHONY : src/pubodom.cpp.s
+
+src/sub.o: src/sub.cpp.o
+
+.PHONY : src/sub.o
+
+# target to build an object file
+src/sub.cpp.o:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/src/sub.cpp.o
+.PHONY : src/sub.cpp.o
+
+src/sub.i: src/sub.cpp.i
+
+.PHONY : src/sub.i
+
+# target to preprocess a source file
+src/sub.cpp.i:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/src/sub.cpp.i
+.PHONY : src/sub.cpp.i
+
+src/sub.s: src/sub.cpp.s
+
+.PHONY : src/sub.s
+
+# target to generate assembly for a file
+src/sub.cpp.s:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/src/sub.cpp.s
+.PHONY : src/sub.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -439,6 +565,18 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... imu_pub"
+	@echo "... odom_pub"
+	@echo "... sub"
+	@echo "... src/pubimu.o"
+	@echo "... src/pubimu.i"
+	@echo "... src/pubimu.s"
+	@echo "... src/pubodom.o"
+	@echo "... src/pubodom.i"
+	@echo "... src/pubodom.s"
+	@echo "... src/sub.o"
+	@echo "... src/sub.i"
+	@echo "... src/sub.s"
 .PHONY : help
 
 
