@@ -48,7 +48,7 @@ int main(int argc, char  *argv[])
     int count = 0; //消息计数器
 
     //逻辑(一秒10次)
-    ros::Rate r(2);
+    ros::Rate r(0.2);
 
     //节点不死
     while (ros::ok())
