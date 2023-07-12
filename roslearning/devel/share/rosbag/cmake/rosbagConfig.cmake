@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(rosbag_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/include " STREQUAL " ")
   set(rosbag_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -185,7 +185,7 @@ foreach(t ${rosbag_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;rospy;message_runtime")
+set(depends "roscpp;message_runtime;geometry_msgs;nav_msgs;roslib")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

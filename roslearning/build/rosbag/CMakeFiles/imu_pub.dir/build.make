@@ -99,7 +99,6 @@ imu_pub_EXTERNAL_OBJECTS =
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: rosbag/CMakeFiles/imu_pub.dir/src/pubimu.cpp.o
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: rosbag/CMakeFiles/imu_pub.dir/build.make
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/libroscpp.so
-/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/librosconsole.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/librosconsole_log4cxx.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/librosconsole_backend_interface.so
@@ -109,13 +108,19 @@ imu_pub_EXTERNAL_OBJECTS =
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/libroscpp_serialization.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/librostime.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/libcpp_common.so
-/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_system.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/libroslib.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /opt/ros/melodic/lib/librospack.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
 /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub: rosbag/CMakeFiles/imu_pub.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/zino/lxb/Ros/ROS-Learning/roslearning/devel/lib/rosbag/imu_pub"
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build/rosbag && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imu_pub.dir/link.txt --verbose=$(VERBOSE)

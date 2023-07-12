@@ -9,10 +9,15 @@ project(rosbag)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
   std_msgs
-  message_generation
+  # message_generation
+  nav_msgs
+  geometry_msgs
+  roslib
 )
+
+# find_package(Eigen3 REQUIRED)
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -47,32 +52,7 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
-# Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   DIRECTORY src/rosbag
-#   Person.msg
-# )
 
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
-
-## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
-# )
-
-# Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -104,10 +84,16 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+ INCLUDE_DIRS 
+ include
 #  LIBRARIES rosbag
 #  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
- CATKIN_DEPENDS roscpp rospy  message_runtime
+ CATKIN_DEPENDS 
+ roscpp   
+ message_runtime
+ geometry_msgs
+ nav_msgs
+ roslib
 #  DEPENDS system_lib
 )
 
@@ -118,7 +104,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -218,6 +204,11 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
+# set(LIBS
+#   ${EIGEN3_LIBS}
+#   ${catkin_LIBRARIES}
+# )
+
 add_executable(odom_pub
   src/pubodom.cpp
 )
@@ -229,6 +220,18 @@ add_executable(imu_pub
 add_executable(sub
   src/sub.cpp
 )
+
+# target_link_libraries(odom_pub
+#   ${LIBS}
+# )
+
+# target_link_libraries(imu_pub
+#   ${LIBS}
+# )
+
+# target_link_libraries(sub
+#   ${LIBS}
+# )
 
 target_link_libraries(odom_pub
   ${catkin_LIBRARIES}
@@ -242,9 +245,5 @@ target_link_libraries(sub
   ${catkin_LIBRARIES}
 )
 
-# catkin_install_python(PROGRAMS
-#   scripts/pub.py
-#   scripts/sub.py
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+
 

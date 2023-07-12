@@ -48,7 +48,7 @@ int main(int argc, char  *argv[])
     int count = 0; //消息计数器
 
     //逻辑(一秒10次)
-    ros::Rate r(0.2);
+    ros::Rate r(2);
 
     //节点不死
     while (ros::ok())
@@ -62,9 +62,14 @@ int main(int argc, char  *argv[])
         odom_data.pose.pose.position.y = 2.0;
         odom_data.pose.pose.position.z = 3.0;
 
-        odom_data.twist.twist.angular.x = 2.5;
-        odom_data.twist.twist.angular.y = 3.5;
-        odom_data.twist.twist.angular.z = 4.5;
+        // odom_data.twist.twist.angular.x = 2.5;
+        // odom_data.twist.twist.angular.y = 3.5;
+        // odom_data.twist.twist.angular.z = 4.5;
+
+        odom_data.pose.pose.orientation.x = 2.5;
+        odom_data.pose.pose.orientation.y = 3.5;
+        odom_data.pose.pose.orientation.z = 4.5;
+        odom_data.pose.pose.orientation.w = 5.5;
 
         //发布消息
         pub.publish(odom_data);

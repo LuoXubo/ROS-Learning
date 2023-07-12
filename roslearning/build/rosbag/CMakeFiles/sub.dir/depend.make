@@ -6,6 +6,8 @@ rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseWithCovariance.h
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
+rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/Transform.h
+rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/TransformStamped.h
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistWithCovariance.h
 rosbag/CMakeFiles/sub.dir/src/sub.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
