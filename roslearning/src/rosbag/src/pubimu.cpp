@@ -1,25 +1,3 @@
-/*
-    需求: 实现基本的话题通信，一方发布数据，一方接收数据，
-         实现的关键点:
-         1.发送方
-         2.接收方
-         3.数据(此处为普通文本)
-
-         PS: 二者需要设置相同的话题
-
-
-    消息发布方:
-        循环发布信息:HelloWorld 后缀数字编号
-
-    实现流程:
-        1.包含头文件 
-        2.初始化 ROS 节点:命名(唯一)
-        3.实例化 ROS 句柄
-        4.实例化 发布者 对象
-        5.组织被发布的数据，并编写逻辑发布数据
-
-*/
-// 1.包含头文件 
 #include "ros/ros.h"
 #include "std_msgs/String.h" //普通文本类型的消息
 # include "sensor_msgs/Imu.h"
@@ -58,9 +36,9 @@ int main(int argc, char  *argv[])
         imu_data.header.frame_id = "base_link";
         
         imu_data.orientation.x = 0;
-        imu_data.orientation.y = -1;
-        imu_data.orientation.z = 1;
-        imu_data.orientation.w = 6;
+        imu_data.orientation.y = 0;
+        imu_data.orientation.z = 0;
+        imu_data.orientation.w = 1;
 
         imu_data.linear_acceleration.x = 0.01;
         imu_data.linear_acceleration.y = 0.02;

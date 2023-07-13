@@ -18,6 +18,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/CMakeLists.txt"
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/CMakeLists.txt"
   "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/package.xml"
+  "/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/scripts/sub.py"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/actionlib_msgs-extras.cmake"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/actionlib_msgs-msg-extras.cmake"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/actionlib_msgsConfig-version.cmake"
@@ -218,6 +219,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "rosbag/catkin_generated/stamps/rosbag/pkg.pc.em.stamp"
   "rosbag/catkin_generated/installspace/rosbagConfig.cmake"
   "rosbag/catkin_generated/installspace/rosbagConfig-version.cmake"
+  "rosbag/catkin_generated/stamps/rosbag/sub.py.stamp"
   "rosbag/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

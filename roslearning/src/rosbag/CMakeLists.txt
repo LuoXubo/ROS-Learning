@@ -245,5 +245,10 @@ target_link_libraries(sub
   ${catkin_LIBRARIES}
 )
 
+catkin_install_python(PROGRAMS
+  scripts/sub.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 
 

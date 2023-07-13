@@ -21,6 +21,7 @@ Eigen::Matrix3d orien = Eigen::Matrix3d::Identity(); // 姿态 旋转矩阵表�
 Eigen::Vector3d w = zero;                            // 角速度
 Eigen::Vector3d v = zero;                            // 线速度
 Eigen::Vector3d gravity;                             // 重力加速度
+ros::Publisher pub;
 
 void odom_update(const sensor_msgs::Imu::ConstPtr &msg);
 void odom_init();
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
     // 初始化当前状态
     odom_init();
     printf("Initialized ...\n\n");
-
+    pub = nh.advertise<nav_msgs::Odometry>("res", 100);
     ros::Subscriber imusub = nh.subscribe<sensor_msgs::Imu>("imu", 100, imuCallback);
     ros::Subscriber odomsub = nh.subscribe<nav_msgs::Odometry>("odom", 100, odomCallback);
     // message_filters::Subscriber<sensor_msgs::Imu> imu_sub(nh, "/lunar/imu", 1);
@@ -60,11 +61,11 @@ void odom_update(const sensor_msgs::Imu::ConstPtr &msg)
         gravity[0] = msg->linear_acceleration.x;
         gravity[1] = msg->linear_acceleration.y;
         gravity[2] = msg->linear_acceleration.z;
-        printf("Get first imu ...\n\n");
+        // printf("Get first imu ...\n\n");
     }
     else
     {
-        printf("Get other imu ...\n\n");
+        // printf("Get other imu ...\n\n");
         deltaT = (msg->header.stamp - pre_odom.header.stamp).toSec();
         if (deltaT < 0)
         {
@@ -94,30 +95,19 @@ void odom_update(const sensor_msgs::Imu::ConstPtr &msg)
         // gravity[2]);
         v = v + deltaT * (acc_g - gravity); // 积分得到速度
         pos = pos + deltaT * v;             // 积分得到位置
-        printf("Get position from IMU :");
-        std::cout << pos << "\n\n";
     }
 }
 
 void imuCallback(const sensor_msgs::Imu::ConstPtr &msg)
 {
-    // std::cout << "Get imu data:\n";
-    // ROS_INFO("imu: %f, %f, %f, %f, %f, %f, %f, %f, %f, %f", msg->linear_acceleration.x, msg->linear_acceleration.y, msg->linear_acceleration.z,
-    //          msg->angular_velocity.x, msg->angular_velocity.y, msg->angular_velocity.z,
-    //          msg->orientation.w, msg->orientation.x, msg->orientation.y, msg->orientation.z);
-    // std::cout << '\n';
-
     odom_update(msg);
-    printf("odom update finished ...\n\n");
     matrix2odom();
-    // std::cout << typeid(pre_odom.header.stamp).name() << std::endl;
-    std::cout << pre_odom.header.stamp << "\n\n";
-    printf("odom: %f %f %f %f %f %f %f\n", pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
-           pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
-           pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w);
-    //        printf("odom: %s %f %f %f %f %f %f %f\n", pre_odom.header.stamp, pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
-    //    pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
-    //    pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w);
+    pub.publish(pre_odom);
+    ros::spinOnce();
+
+    // printf("odom: %f %f %f %f %f %f %f\n", pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
+    //        pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
+    //        pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w);
     // ROS_INFO("calc odom: %f %f %f %f %f %f %f", pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
     //          pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
     //          pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w);
@@ -125,11 +115,6 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr &msg)
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
 {
-    // std::cout << "Get odometry data: \n";
-    // ROS_INFO("odom: %f, %f, %f, %f, %f, %f", msg->pose.pose.position.x, msg->pose.pose.position.y,
-    //          msg->pose.pose.position.z, msg->twist.twist.angular.x, msg->twist.twist.angular.y, msg->twist.twist.angular.z);
-    // std::cout << '\n';
-    printf("Get odom stats ... \n\n");
     pre_odom.header.stamp = msg->header.stamp;
     pre_odom.header.frame_id = msg->header.frame_id;
 
@@ -144,13 +129,11 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr &msg)
 
     odom2matrix(); // update position and orientation matrix
 
-    printf("odom: %s %f %f %f %f %f %f %f\n", pre_odom.header.stamp, pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
-           pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
-           pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w);
+    pub.publish(pre_odom);
+    ros::spinOnce();
     // ROS_INFO("odom: %f %f %f %f %f %f %f", pre_odom.pose.pose.position.x, pre_odom.pose.pose.position.y,
     //          pre_odom.pose.pose.position.z, pre_odom.pose.pose.orientation.x, pre_odom.pose.pose.orientation.y,
     //          pre_odom.pose.pose.orientation.z, pre_odom.pose.pose.orientation.w)
-    std::cout << "Get odometry data !\n";
 }
 
 void odom_init()
@@ -178,8 +161,6 @@ void matrix2odom()
     pre_odom.twist.twist.angular.x = w(0);
     pre_odom.twist.twist.angular.y = w(1);
     pre_odom.twist.twist.angular.z = w(2);
-
-    printf("matrix to odom ...\n\n");
 }
 
 void odom2matrix()
@@ -195,6 +176,4 @@ void odom2matrix()
     quat.z() = pre_odom.pose.pose.orientation.z;
     quat.w() = pre_odom.pose.pose.orientation.w;
     orien = quat.normalized().toRotationMatrix();
-
-    printf("odom to matrix ...\n\n");
 }

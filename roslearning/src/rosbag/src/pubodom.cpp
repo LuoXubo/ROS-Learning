@@ -51,6 +51,7 @@ int main(int argc, char  *argv[])
     ros::Rate r(0.2);
 
     //节点不死
+    double x = 0.01, y = 0.01, z = 0.01;
     while (ros::ok())
     {
         nav_msgs::Odometry odom_data;
@@ -58,18 +59,18 @@ int main(int argc, char  *argv[])
         odom_data.header.stamp = ros::Time::now();
         odom_data.header.frame_id = "odom";
 
-        odom_data.pose.pose.position.x = 1.0;
-        odom_data.pose.pose.position.y = 2.0;
-        odom_data.pose.pose.position.z = 3.0;
+        odom_data.pose.pose.position.x = x;
+        odom_data.pose.pose.position.y = y;
+        odom_data.pose.pose.position.z = z;
 
         // odom_data.twist.twist.angular.x = 2.5;
         // odom_data.twist.twist.angular.y = 3.5;
         // odom_data.twist.twist.angular.z = 4.5;
 
-        odom_data.pose.pose.orientation.x = 2.5;
-        odom_data.pose.pose.orientation.y = 3.5;
-        odom_data.pose.pose.orientation.z = 4.5;
-        odom_data.pose.pose.orientation.w = 5.5;
+        odom_data.pose.pose.orientation.x = 0;
+        odom_data.pose.pose.orientation.y = 0;
+        odom_data.pose.pose.orientation.z = 0;
+        odom_data.pose.pose.orientation.w = 1;
 
         //发布消息
         pub.publish(odom_data);
@@ -77,6 +78,9 @@ int main(int argc, char  *argv[])
         //根据前面制定的发送贫频率自动休眠 休眠时间 = 1/频率；
         r.sleep();
         count++;//循环结束前，让 count 自增
+        x += 0.01;
+        y += 0.01;
+        z += 0.01;
         //暂无应用
         ros::spinOnce();
     }
