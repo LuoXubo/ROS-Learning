@@ -158,6 +158,7 @@ gtest/googlemock/gtest/clean: gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 rosbag/all: rosbag/CMakeFiles/sub.dir/all
 rosbag/all: rosbag/CMakeFiles/imu_pub.dir/all
 rosbag/all: rosbag/CMakeFiles/odom_pub.dir/all
+rosbag/all: rosbag/CMakeFiles/imu_integrator.dir/all
 
 .PHONY : rosbag/all
 
@@ -195,6 +196,7 @@ rosbag/clean: rosbag/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 rosbag/clean: rosbag/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
 rosbag/clean: rosbag/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 rosbag/clean: rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
+rosbag/clean: rosbag/CMakeFiles/imu_integrator.dir/clean
 rosbag/clean: rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 rosbag/clean: rosbag/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 rosbag/clean: rosbag/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
@@ -453,7 +455,7 @@ gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean:
 rosbag/CMakeFiles/sub.dir/all:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/depend
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/sub.dir/build.make rosbag/CMakeFiles/sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=16,17 "Built target sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=18,19 "Built target sub"
 .PHONY : rosbag/CMakeFiles/sub.dir/all
 
 # Build rule for subdir invocation for target.
@@ -480,7 +482,7 @@ rosbag/CMakeFiles/sub.dir/clean:
 rosbag/CMakeFiles/imu_pub.dir/all:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/depend
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_pub.dir/build.make rosbag/CMakeFiles/imu_pub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=12,13 "Built target imu_pub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=14,15 "Built target imu_pub"
 .PHONY : rosbag/CMakeFiles/imu_pub.dir/all
 
 # Build rule for subdir invocation for target.
@@ -507,7 +509,7 @@ rosbag/CMakeFiles/imu_pub.dir/clean:
 rosbag/CMakeFiles/odom_pub.dir/all:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/depend
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/odom_pub.dir/build.make rosbag/CMakeFiles/odom_pub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=14,15 "Built target odom_pub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=16,17 "Built target odom_pub"
 .PHONY : rosbag/CMakeFiles/odom_pub.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1201,6 +1203,33 @@ nav_msgs_generate_messages_nodejs: rosbag/CMakeFiles/nav_msgs_generate_messages_
 rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean:
 	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
 .PHONY : rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target rosbag/CMakeFiles/imu_integrator.dir
+
+# All Build rule for target.
+rosbag/CMakeFiles/imu_integrator.dir/all:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/depend
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles --progress-num=12,13 "Built target imu_integrator"
+.PHONY : rosbag/CMakeFiles/imu_integrator.dir/all
+
+# Build rule for subdir invocation for target.
+rosbag/CMakeFiles/imu_integrator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/imu_integrator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zino/lxb/Ros/ROS-Learning/roslearning/build/CMakeFiles 0
+.PHONY : rosbag/CMakeFiles/imu_integrator.dir/rule
+
+# Convenience name for target.
+imu_integrator: rosbag/CMakeFiles/imu_integrator.dir/rule
+
+.PHONY : imu_integrator
+
+# clean rule for target.
+rosbag/CMakeFiles/imu_integrator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/clean
+.PHONY : rosbag/CMakeFiles/imu_integrator.dir/clean
 
 #=============================================================================
 # Target rules for target rosbag/CMakeFiles/std_msgs_generate_messages_py.dir

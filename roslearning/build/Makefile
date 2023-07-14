@@ -668,6 +668,19 @@ nav_msgs_generate_messages_nodejs/fast:
 .PHONY : nav_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named imu_integrator
+
+# Build rule for target.
+imu_integrator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imu_integrator
+.PHONY : imu_integrator
+
+# fast build rule for target.
+imu_integrator/fast:
+	$(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/build
+.PHONY : imu_integrator/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
 
 # Build rule for target.
@@ -784,6 +797,7 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... imu_integrator"
 	@echo "... imu_pub"
 	@echo "... odom_pub"
 	@echo "... sub"

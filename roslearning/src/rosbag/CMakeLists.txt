@@ -221,6 +221,8 @@ add_executable(sub
   src/sub.cpp
 )
 
+add_executable(imu_integrator
+  src/imu_integrator.cpp)
 # target_link_libraries(odom_pub
 #   ${LIBS}
 # )
@@ -242,6 +244,10 @@ target_link_libraries(imu_pub
 )
 
 target_link_libraries(sub
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(imu_integrator
   ${catkin_LIBRARIES}
 )
 

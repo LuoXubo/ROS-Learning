@@ -262,6 +262,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "rosbag/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
+  "rosbag/CMakeFiles/imu_integrator.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "rosbag/CMakeFiles/geometry_msgs_generate_messages_eus.dir/DependInfo.cmake"

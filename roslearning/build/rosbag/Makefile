@@ -607,6 +607,21 @@ nav_msgs_generate_messages_nodejs/fast:
 .PHONY : nav_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+rosbag/CMakeFiles/imu_integrator.dir/rule:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/imu_integrator.dir/rule
+.PHONY : rosbag/CMakeFiles/imu_integrator.dir/rule
+
+# Convenience name for target.
+imu_integrator: rosbag/CMakeFiles/imu_integrator.dir/rule
+
+.PHONY : imu_integrator
+
+# fast build rule for target.
+imu_integrator/fast:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/build
+.PHONY : imu_integrator/fast
+
+# Convenience name for target.
 rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : rosbag/CMakeFiles/std_msgs_generate_messages_py.dir/rule
@@ -680,6 +695,33 @@ actionlib_msgs_generate_messages_lisp: rosbag/CMakeFiles/actionlib_msgs_generate
 actionlib_msgs_generate_messages_lisp/fast:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make rosbag/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
+
+src/imu_integrator.o: src/imu_integrator.cpp.o
+
+.PHONY : src/imu_integrator.o
+
+# target to build an object file
+src/imu_integrator.cpp.o:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.o
+.PHONY : src/imu_integrator.cpp.o
+
+src/imu_integrator.i: src/imu_integrator.cpp.i
+
+.PHONY : src/imu_integrator.i
+
+# target to preprocess a source file
+src/imu_integrator.cpp.i:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.i
+.PHONY : src/imu_integrator.cpp.i
+
+src/imu_integrator.s: src/imu_integrator.cpp.s
+
+.PHONY : src/imu_integrator.s
+
+# target to generate assembly for a file
+src/imu_integrator.cpp.s:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.s
+.PHONY : src/imu_integrator.cpp.s
 
 src/pubimu.o: src/pubimu.cpp.o
 
@@ -805,9 +847,13 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... imu_integrator"
 	@echo "... imu_pub"
 	@echo "... odom_pub"
 	@echo "... sub"
+	@echo "... src/imu_integrator.o"
+	@echo "... src/imu_integrator.i"
+	@echo "... src/imu_integrator.s"
 	@echo "... src/pubimu.o"
 	@echo "... src/pubimu.i"
 	@echo "... src/pubimu.s"
