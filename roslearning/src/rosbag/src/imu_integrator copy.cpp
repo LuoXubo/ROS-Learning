@@ -87,6 +87,6 @@ int main(int argc, char **argv) {
       nh.advertise<visualization_msgs::Marker>("Imu_path", 1000);
   ImuIntegrator *imu_integrator = new ImuIntegrator(line);
   ros::Subscriber Imu_message = nh.subscribe(
-      "/zed2/zed_node/imu/data_raw", 1000, &ImuIntegrator::ImuCallback, imu_integrator);
+      "imu", 1000, &ImuIntegrator::ImuCallback, imu_integrator);
   ros::spin();
 }

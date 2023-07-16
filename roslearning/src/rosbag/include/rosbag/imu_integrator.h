@@ -57,6 +57,8 @@ public:
 
     //! Callback function for subscriber.
     void ImuCallback(const sensor_msgs::Imu &msg);
+    void OdomCallback(const nav_msgs::Odometry &msg);
+
 
     void setGravity(const geometry_msgs::Vector3 &msg);
     void updatePath(const Eigen::Vector3d &msg);

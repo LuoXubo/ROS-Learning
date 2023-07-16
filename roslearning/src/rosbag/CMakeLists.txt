@@ -222,7 +222,7 @@ add_executable(sub
 )
 
 add_executable(imu_integrator
-  src/imu_integrator.cpp)
+  src/imu_odom.cpp)
 # target_link_libraries(odom_pub
 #   ${LIBS}
 # )

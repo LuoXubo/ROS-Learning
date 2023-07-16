@@ -696,32 +696,32 @@ actionlib_msgs_generate_messages_lisp/fast:
 	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make rosbag/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
-src/imu_integrator.o: src/imu_integrator.cpp.o
+src/imu_odom.o: src/imu_odom.cpp.o
 
-.PHONY : src/imu_integrator.o
+.PHONY : src/imu_odom.o
 
 # target to build an object file
-src/imu_integrator.cpp.o:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.o
-.PHONY : src/imu_integrator.cpp.o
+src/imu_odom.cpp.o:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_odom.cpp.o
+.PHONY : src/imu_odom.cpp.o
 
-src/imu_integrator.i: src/imu_integrator.cpp.i
+src/imu_odom.i: src/imu_odom.cpp.i
 
-.PHONY : src/imu_integrator.i
+.PHONY : src/imu_odom.i
 
 # target to preprocess a source file
-src/imu_integrator.cpp.i:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.i
-.PHONY : src/imu_integrator.cpp.i
+src/imu_odom.cpp.i:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_odom.cpp.i
+.PHONY : src/imu_odom.cpp.i
 
-src/imu_integrator.s: src/imu_integrator.cpp.s
+src/imu_odom.s: src/imu_odom.cpp.s
 
-.PHONY : src/imu_integrator.s
+.PHONY : src/imu_odom.s
 
 # target to generate assembly for a file
-src/imu_integrator.cpp.s:
-	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_integrator.cpp.s
-.PHONY : src/imu_integrator.cpp.s
+src/imu_odom.cpp.s:
+	cd /home/zino/lxb/Ros/ROS-Learning/roslearning/build && $(MAKE) $(MAKESILENT) -f rosbag/CMakeFiles/imu_integrator.dir/build.make rosbag/CMakeFiles/imu_integrator.dir/src/imu_odom.cpp.s
+.PHONY : src/imu_odom.cpp.s
 
 src/pubimu.o: src/pubimu.cpp.o
 
@@ -851,9 +851,9 @@ help:
 	@echo "... imu_pub"
 	@echo "... odom_pub"
 	@echo "... sub"
-	@echo "... src/imu_integrator.o"
-	@echo "... src/imu_integrator.i"
-	@echo "... src/imu_integrator.s"
+	@echo "... src/imu_odom.o"
+	@echo "... src/imu_odom.i"
+	@echo "... src/imu_odom.s"
 	@echo "... src/pubimu.o"
 	@echo "... src/pubimu.i"
 	@echo "... src/pubimu.s"

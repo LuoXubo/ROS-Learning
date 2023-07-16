@@ -22,7 +22,7 @@ eigen3/Eigen/Dense
 cmath
 -
 
-/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/src/imu_integrator.cpp
+/home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/src/imu_odom.cpp
 rosbag/imu_integrator.h
 /home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/src/rosbag/imu_integrator.h
 
