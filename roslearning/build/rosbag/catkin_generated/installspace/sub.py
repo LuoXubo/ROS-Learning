@@ -7,28 +7,40 @@ from matplotlib import pyplot as plt
 import time
 
 
-# x, y, z = [], [], []
+# 接受四组轨迹，保存为TUM文件，支持后续evo精度评定
 
-res = open('./res.txt', 'w+')
+calc = open('./calc.txt', 'w+')
 gt = open('./gt.txt', 'w+')
+nav = open('./nav.txt', 'w+')
+slam = open('./slam.txt', 'w+')
 
-
-def getRes(msg):
-    timestamp = msg.header.stamp
+def getcalc(msg):
+    timestamp = float(str(msg.header.stamp))
     pose = msg.pose.pose
-    # x.append(float(msg.pose.pose.position.x))
-    # y.append(float(msg.pose.pose.position.y))
-    # z.append(float(msg.pose.pose.position.z))
 
-    res.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp), pose.position.x, pose.position.y, pose.position.z,
+    calc.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
                                              pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
 
 
-def getGT(msg):
-    timestamp = msg.header.stamp
+def getgt(msg):
+    timestamp = float(str(msg.header.stamp))
     pose = msg.pose.pose
 
-    gt.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp), pose.position.x, pose.position.y, pose.position.z,
+    gt.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
+                                             pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
+
+def getnav(msg):
+    timestamp = float(str(msg.header.stamp))
+    pose = msg.pose.pose
+
+    nav.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
+                                             pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
+
+def getslam(msg):
+    timestamp = float(str(msg.header.stamp))
+    pose = msg.pose.pose
+
+    slam.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
                                              pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
 
 
@@ -36,7 +48,9 @@ if __name__ == "__main__":
 
     rospy.init_node("listener_p")
     print('Begin to listen ...')
-    odom_sub = rospy.Subscriber("res", Odometry, getRes, queue_size=100)
-    gt_sub = rospy.Subscriber("gt", Odometry, getGT, queue_size=100)
+    calc_sub = rospy.Subscriber("/calc/odom", Odometry, getcalc, queue_size=1000)
+    gt_sub = rospy.Subscriber("/lunar/odom", Odometry, getgt, queue_size=1000)
+    nav_sub = rospy.Subscriber("/navlib/odom", Odometry, getnav, queue_size=1000)
+    slam_sub = rospy.Subscriber("/slam/odom", Odometry, getslam, queue_size=1000)
 
     rospy.spin()

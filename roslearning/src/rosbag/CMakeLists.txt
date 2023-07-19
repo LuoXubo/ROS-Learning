@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   geometry_msgs
   roslib
+  tf
 )
 
 # find_package(Eigen3 REQUIRED)
@@ -222,7 +223,7 @@ add_executable(sub
 )
 
 add_executable(imu_integrator
-  src/imu_odom.cpp)
+  src/imu_integrator.cpp)
 # target_link_libraries(odom_pub
 #   ${LIBS}
 # )
@@ -251,8 +252,15 @@ target_link_libraries(imu_integrator
   ${catkin_LIBRARIES}
 )
 
+add_executable(path_vis
+  src/path_vis.cpp)
+
+target_link_libraries(path_vis
+  ${catkin_LIBRARIES})
+
 catkin_install_python(PROGRAMS
   scripts/sub.py
+  scripts/subImu.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

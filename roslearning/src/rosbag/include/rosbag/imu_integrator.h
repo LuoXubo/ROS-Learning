@@ -39,13 +39,16 @@ private:
     Eigen::Vector3d gravity;
     Eigen::Vector3d velocity;
     visualization_msgs::Marker path;
+    visualization_msgs::Marker gt_path;
     ros::Publisher line_pub;
     ros::Publisher odom_pub;
+    ros::Publisher calc_pub;
     double deltaT;
     bool firstT;
 public:
     //! Constructor.
-    ImuIntegrator(const ros::Publisher&);
+    ImuIntegrator(const ros::Publisher &line);
+    ImuIntegrator(const ros::Publisher &line, const ros::Publisher &odom_line);
     //! Destructor.
     ~ImuIntegrator();
 
@@ -59,9 +62,9 @@ public:
     void ImuCallback(const sensor_msgs::Imu &msg);
     void OdomCallback(const nav_msgs::Odometry &msg);
 
-
     void setGravity(const geometry_msgs::Vector3 &msg);
     void updatePath(const Eigen::Vector3d &msg);
+    void updateGTPath(const Eigen::Vector3d &msg);
     void updateOdom(const ros::Time time, const Eigen::Vector3d &pos, const Eigen::Matrix3d &orien);
     void calcPosition(const geometry_msgs::Vector3 &msg);
     void calcOrientation(const geometry_msgs::Vector3 &msg);
