@@ -9,6 +9,7 @@
 #include <nav_msgs/Odometry.h>
 #include <eigen3/Eigen/Dense>
 #include <cmath>
+#include <typeinfo>
 // Custom message includes. Auto-generated from msg/ directory.
 /*
 struct Orientation
@@ -68,6 +69,8 @@ public:
     void updateOdom(const ros::Time time, const Eigen::Vector3d &pos, const Eigen::Matrix3d &orien);
     void calcPosition(const geometry_msgs::Vector3 &msg);
     void calcOrientation(const geometry_msgs::Vector3 &msg);
+    void calcOrientation(const geometry_msgs::Quaternion &msg);
+
 };
 
 #endif // SR_NODE_EXAMPLE_CORE_H

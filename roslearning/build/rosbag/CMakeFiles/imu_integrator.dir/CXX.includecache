@@ -21,6 +21,8 @@ eigen3/Eigen/Dense
 -
 cmath
 -
+typeinfo
+-
 
 /home/zino/lxb/Ros/ROS-Learning/roslearning/src/rosbag/src/imu_integrator.cpp
 rosbag/imu_integrator.h

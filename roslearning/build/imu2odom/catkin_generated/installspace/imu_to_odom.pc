@@ -1,0 +1,8 @@
+prefix=/home/zino/lxb/Ros/ROS-Learning/roslearning/install
+
+Name: imu_to_odom
+Description: Description of imu_to_odom
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp message_runtime geometry_msgs nav_msgs roslib

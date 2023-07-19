@@ -73,12 +73,14 @@ CMAKE_BINARY_DIR = /home/zino/lxb/Ros/ROS-Learning/roslearning/build
 
 # The main recursive "all" target.
 all: gtest/all
+all: imu2odom/all
 all: rosbag/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: imu2odom/preinstall
 preinstall: rosbag/preinstall
 
 .PHONY : preinstall
@@ -90,6 +92,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: imu2odom/clean
 clean: rosbag/clean
 
 .PHONY : clean
@@ -150,6 +153,24 @@ gtest/googlemock/gtest/clean: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/c
 gtest/googlemock/gtest/clean: gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 
 .PHONY : gtest/googlemock/gtest/clean
+
+#=============================================================================
+# Directory level rules for directory imu2odom
+
+# Recursive "all" directory target.
+imu2odom/all:
+
+.PHONY : imu2odom/all
+
+# Recursive "preinstall" directory target.
+imu2odom/preinstall:
+
+.PHONY : imu2odom/preinstall
+
+# Recursive "clean" directory target.
+imu2odom/clean:
+
+.PHONY : imu2odom/clean
 
 #=============================================================================
 # Directory level rules for directory rosbag

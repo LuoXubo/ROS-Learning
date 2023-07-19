@@ -1,0 +1,8 @@
+prefix=/home/zino/lxb/Ros/ROS-Learning/roslearning/devel
+
+Name: imu2odom
+Description: Description of imu2odom
+Version: 0.0.0
+Cflags: -I/home/zino/lxb/Ros/ROS-Learning/roslearning/src/imu2odom/include
+Libs: -L${prefix}/lib 
+Requires: roscpp message_runtime geometry_msgs nav_msgs roslib
