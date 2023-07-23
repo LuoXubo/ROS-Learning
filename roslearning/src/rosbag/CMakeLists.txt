@@ -261,6 +261,8 @@ target_link_libraries(path_vis
 catkin_install_python(PROGRAMS
   scripts/sub.py
   scripts/subImu.py
+  scripts/imu_pub.py
+  scripts/gt_pub.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
