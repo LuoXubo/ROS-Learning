@@ -11,6 +11,7 @@ ImuIntegrator::ImuIntegrator(const ros::Publisher &pub)
   velocity = zero;
   line_pub = pub;
   firstT = true;
+  firstIMU = true;
 
   calc_pub = pub;
 
@@ -69,13 +70,13 @@ ImuIntegrator::ImuIntegrator(const ros::Publisher &pub, const ros::Publisher &od
 
 void ImuIntegrator::ImuCallback(const sensor_msgs::Imu &msg)
 {
-  std::cout << msg << '\n';
+  // std::cout << msg << '\n';
   if (firstT)
   {
     time = msg.header.stamp;
     deltaT = 0;
     setGravity(msg.linear_acceleration);
-    firstT = false;
+    // firstT = false;
   }
   else
   {
@@ -84,11 +85,16 @@ void ImuIntegrator::ImuCallback(const sensor_msgs::Imu &msg)
       std::cout << "imu passed ...\n";
       return;
     }
-      
+    if(firstIMU)
+    {
+    setGravity(msg.linear_acceleration);
+    firstIMU = false;
+    }
+    
     deltaT = (msg.header.stamp - time).toSec();
     time = msg.header.stamp;
-    calcOrientation(msg.angular_velocity);
-    // calcOrientation(msg.orientation);
+    // calcOrientation(msg.angular_velocity);
+    calcOrientation(msg.orientation);
     calcPosition(msg.linear_acceleration);
     // updatePath(pose.pos);
     updateOdom(time, pose.pos, pose.orien);
@@ -104,7 +110,7 @@ void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
     firstT = false;
     time = msg.header.stamp;
   }
-  if(time > msg.header.stamp)
+  else if(time > msg.header.stamp)
   {
     std::cout << "odom passed ...\n";
     return;
@@ -116,15 +122,15 @@ void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
   pose.pos(1) = msg.pose.pose.position.y;
   pose.pos(2) = msg.pose.pose.position.z;
 
-  // Eigen::Quaterniond quat;
-  // quat.x() = msg.pose.pose.orientation.x;
-  // quat.y() = msg.pose.pose.orientation.y;
-  // quat.z() = msg.pose.pose.orientation.z;
-  // quat.w() = msg.pose.pose.orientation.w;
-  // pose.orien = quat.normalized().toRotationMatrix();
+  Eigen::Quaterniond quat;
+  quat.x() = msg.pose.pose.orientation.x;
+  quat.y() = msg.pose.pose.orientation.y;
+  quat.z() = msg.pose.pose.orientation.z;
+  quat.w() = msg.pose.pose.orientation.w;
+  pose.orien = quat.normalized().toRotationMatrix();
 
-  updatePath(pose.pos);
-  updateGTPath(pose.pos);
+  // updatePath(pose.pos);
+  // updateGTPath(pose.pos);
   
   // publishMessage();
   // odom_pub.publish(gt_path);
@@ -137,6 +143,8 @@ void ImuIntegrator::setGravity(const geometry_msgs::Vector3 &msg)
   gravity[0] = msg.x;
   gravity[1] = msg.y;
   gravity[2] = msg.z;
+
+  std::cout << "Set gravity to:\n" << msg << "\n";
 }
 
 void ImuIntegrator::updatePath(const Eigen::Vector3d &msg)
@@ -210,18 +218,17 @@ void ImuIntegrator::calcOrientation(const geometry_msgs::Quaternion &msg)
 
 void ImuIntegrator::calcPosition(const geometry_msgs::Vector3 &msg)
 {
-  // std::cout << msg << "\n\n";
+
   Eigen::Vector3d acc_l(msg.x, msg.y, msg.z);
-  // Eigen::Vector3d acc_g = acc_l;
   Eigen::Vector3d acc_g = pose.orien * acc_l;
 
   auto acc = acc_g - gravity;
-  // std::cout << acc << "\n\n";
   // if(std::abs(acc_g(0))>10) velocity(0) = velocity(0)+ deltaT*acc(0);
   // if(std::abs(acc_g(1))>10) velocity(1) = velocity(1)+ deltaT*acc(1);
   // if(std::abs(acc_g(2))>10) velocity(2) = velocity(2)+ deltaT*acc(2);
 
   velocity = velocity + deltaT * (acc_g - gravity);
+
   std::cout << velocity << "\n\n";
   pose.pos = pose.pos + deltaT * velocity;
 }

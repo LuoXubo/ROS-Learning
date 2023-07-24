@@ -36,7 +36,7 @@ import time
 
 rospy.init_node("imu_publisher")
 pub = rospy.Publisher("/lunar/imu", Imu, queue_size=1000)
-rate = rospy.Rate(10)
+rate = rospy.Rate(72)
 
 imu = open('./imu.csv','r')
 lines = imu.readlines()[1:]

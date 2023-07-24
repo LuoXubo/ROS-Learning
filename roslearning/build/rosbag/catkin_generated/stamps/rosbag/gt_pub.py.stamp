@@ -11,7 +11,7 @@ import time
 if __name__ == '__main__':
     rospy.init_node("odom_publisher")
     pub = rospy.Publisher("/lunar/odom", Odometry, queue_size=1000)
-    rate = rospy.Rate(1)
+    rate = rospy.Rate(7)
 
     gt = open('./gt.csv','r')
     lines = gt.readlines()[1:]

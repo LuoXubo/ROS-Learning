@@ -46,6 +46,7 @@ private:
     ros::Publisher calc_pub;
     double deltaT;
     bool firstT;
+    bool firstIMU;
 public:
     //! Constructor.
     ImuIntegrator(const ros::Publisher &line);
