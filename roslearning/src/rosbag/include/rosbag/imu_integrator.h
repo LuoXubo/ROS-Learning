@@ -10,6 +10,7 @@
 #include <eigen3/Eigen/Dense>
 #include <cmath>
 #include <typeinfo>
+#include <vector>
 // Custom message includes. Auto-generated from msg/ directory.
 /*
 struct Orientation
@@ -38,15 +39,17 @@ private:
     Pose pose;
     ros::Time time;
     Eigen::Vector3d gravity;
+    Eigen::Vector3d pre_acc;
     Eigen::Vector3d velocity;
+    Eigen::Vector3d pre_pos;
+    ros::Time pre_time;
     visualization_msgs::Marker path;
-    visualization_msgs::Marker gt_path;
-    ros::Publisher line_pub;
-    ros::Publisher odom_pub;
     ros::Publisher calc_pub;
     double deltaT;
     bool firstT;
     bool firstIMU;
+    bool firstOdom;
+    std::vector<Eigen::Matrix3d> imu_R;
 public:
     //! Constructor.
     ImuIntegrator(const ros::Publisher &line);
@@ -59,6 +62,8 @@ public:
 
     //! Publish the message.
     void publishMessage();
+    void publishMessage(const ros::Time time, const Eigen::Vector3d &pos, const Eigen::Matrix3d &orien);
+
 
     //! Callback function for subscriber.
     void ImuCallback(const sensor_msgs::Imu &msg);
@@ -66,8 +71,6 @@ public:
 
     void setGravity(const geometry_msgs::Vector3 &msg);
     void updatePath(const Eigen::Vector3d &msg);
-    void updateGTPath(const Eigen::Vector3d &msg);
-    void updateOdom(const ros::Time time, const Eigen::Vector3d &pos, const Eigen::Matrix3d &orien);
     void calcPosition(const geometry_msgs::Vector3 &msg);
     void calcOrientation(const geometry_msgs::Vector3 &msg);
     void calcOrientation(const geometry_msgs::Quaternion &msg);

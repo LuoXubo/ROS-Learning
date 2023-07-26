@@ -1,3 +1,6 @@
+// 接受IMU和SLAM，轨迹递推，发布/calc/odom
+// v2. 方向大致对齐
+
 #include "Imu_Integrator/Imu_Integrator.h"
 
 ImuIntegrator::ImuIntegrator(const ros::Publisher &pub) {

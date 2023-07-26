@@ -11,7 +11,6 @@ ImuIntegrator::ImuIntegrator(const ros::Publisher &pub)
   velocity = zero;
   firstT = true;
   firstIMU = true;
-  firstOdom = true;
   calc_pub = pub;
 
   // Line strip is blue
@@ -61,17 +60,20 @@ void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
   cnt++;
   if (cnt % 10 != 1)
     return;
-
+  
   if (firstT)
   {
     firstT = false;
+    time = msg.header.stamp;
   }
   else if (time > msg.header.stamp)
   {
-    // std::cout << "odom passed ...\n";
+    std::cout << "odom passed ...\n";
     return;
   }
-  deltaT = (msg.header.stamp - pre_time).toSec();
+
+  time = msg.header.stamp;
+  deltaT = (msg.header.stamp - time).toSec();
   pose.pos(0) = msg.pose.pose.position.x;
   pose.pos(1) = msg.pose.pose.position.y;
   pose.pos(2) = msg.pose.pose.position.z;
@@ -83,23 +85,9 @@ void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
   quat.w() = msg.pose.pose.orientation.w;
   pose.orien = quat.normalized().toRotationMatrix();
 
-  if (!firstOdom && imu_R.size())
-  {
-    velocity = (pose.pos - pre_pos) / deltaT;
-    velocity = pose.orien * imu_R[imu_R.size() / 2].inverse() * velocity;
-    std::cout << velocity << "\n\n";
-    imu_R.clear();
-  }
-  if(!firstOdom)
-  {
-    imu_R.clear();
-  }
-
-  pre_pos = pose.pos;
-  pre_time = msg.header.stamp;
-  firstOdom = false;
-  time = msg.header.stamp;
+  // setGravity(pre_acc);
   gravity[2] = pre_acc[2];
+  gravity[1] = pre_acc[1];
   calc_pub.publish(msg);
 }
 
@@ -133,9 +121,9 @@ void ImuIntegrator::publishMessage(const ros::Time time, const Eigen::Vector3d &
   odom.pose.pose.position.z = pos(2);
 
   odom.pose.pose.orientation.w = std::sqrt(1 + orien(0, 0) + orien(1, 1) + orien(2, 2)) / 2;
-  odom.pose.pose.orientation.x = (orien(2, 1) - orien(1, 2)) / 4 / odom.pose.pose.orientation.w;
-  odom.pose.pose.orientation.y = (orien(0, 2) - orien(2, 0)) / 4 / odom.pose.pose.orientation.w;
-  odom.pose.pose.orientation.z = (orien(1, 0) - orien(0, 1)) / 4 / odom.pose.pose.orientation.w;
+  odom.pose.pose.orientation.x = (orien(2, 1) - orien(1, 2)) / 4/odom.pose.pose.orientation.w;
+  odom.pose.pose.orientation.y = (orien(0, 2) - orien(2, 0)) / 4/odom.pose.pose.orientation.w;
+  odom.pose.pose.orientation.z = (orien(1, 0) - orien(0, 1)) / 4/odom.pose.pose.orientation.w;
 
   calc_pub.publish(odom);
 }
@@ -153,7 +141,6 @@ void ImuIntegrator::calcOrientation(const geometry_msgs::Vector3 &msg)
                (Eigen::Matrix3d::Identity() + (std::sin(sigma) / sigma) * B -
                 ((1 - std::cos(sigma)) / std::pow(sigma, 2)) * B * B);
 
-  imu_R.push_back(pose.orien);
   // std::cout << pose.orien << "\n\n";
 }
 // 更新：直接使用IMU返回的方向, q(w,x,y,z)
@@ -175,6 +162,8 @@ void ImuIntegrator::calcPosition(const geometry_msgs::Vector3 &msg)
   pre_acc = pose.orien * acc_l;
 
   velocity = velocity + deltaT * (pre_acc - gravity);
+  // velocity = velocity + deltaT * pre_acc;
+  // std::cout << velocity << "\n\n";
   pose.pos = pose.pos + deltaT * velocity;
 }
 
