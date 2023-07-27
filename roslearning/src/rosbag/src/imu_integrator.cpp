@@ -27,6 +27,7 @@ ImuIntegrator::ImuIntegrator(const ros::Publisher &pub)
 
 void ImuIntegrator::ImuCallback(const sensor_msgs::Imu &msg)
 {
+  std::cout  << "get imu\n";
   if (firstT)
   {
     time = msg.header.stamp;
@@ -58,9 +59,10 @@ void ImuIntegrator::ImuCallback(const sensor_msgs::Imu &msg)
 
 void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
 {
-  cnt++;
-  if (cnt % 10 != 1)
-    return;
+  std::cout << "get odom\n";
+  // cnt++;
+  // if (cnt % 10 != 1)
+  //   return;
 
   if (firstT)
   {
@@ -99,7 +101,7 @@ void ImuIntegrator::OdomCallback(const nav_msgs::Odometry &msg)
   pre_time = msg.header.stamp;
   firstOdom = false;
   time = msg.header.stamp;
-  gravity[2] = pre_acc[2];
+  // gravity[2] = pre_acc[2];
   calc_pub.publish(msg);
 }
 
@@ -167,6 +169,7 @@ void ImuIntegrator::calcOrientation(const geometry_msgs::Quaternion &msg)
   quat.z() = msg.z;
   quat.w() = msg.w;
   pose.orien = quat.normalized().toRotationMatrix();
+  imu_R.push_back(pose.orien);
 }
 
 void ImuIntegrator::calcPosition(const geometry_msgs::Vector3 &msg)
@@ -190,7 +193,7 @@ int main(int argc, char **argv)
   ros::Subscriber Imu_message = nh.subscribe(
       "/lunar/imu", 2000, &ImuIntegrator::ImuCallback, imu_integrator);
   ros::Subscriber Odom_message = nh.subscribe(
-      "/lunar/odom", 2000, &ImuIntegrator::OdomCallback, imu_integrator);
+      "/slam/odom", 2000, &ImuIntegrator::OdomCallback, imu_integrator);
 
   ros::spin();
 }

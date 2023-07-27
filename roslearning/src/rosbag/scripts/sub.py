@@ -20,9 +20,7 @@ def getcalc(msg):
     pose = msg.pose.pose
 
     calc.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
-                                              pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
-    # calc.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
-    #                                           pose.orientation.w, pose.orientation.x, pose.orientation.y, pose.orientation.z))
+                                              pose.orientation.w, pose.orientation.x, pose.orientation.y, pose.orientation.z))
 
 
 def getgt(msg):
@@ -30,7 +28,7 @@ def getgt(msg):
     pose = msg.pose.pose
 
     gt.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
-                                            pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
+                                            pose.orientation.w, pose.orientation.x, pose.orientation.y, pose.orientation.z))
 
 
 def getnav(msg):
@@ -38,7 +36,7 @@ def getnav(msg):
     pose = msg.pose.pose
 
     nav.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
-                                             pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
+                                             pose.orientation.w, pose.orientation.x, pose.orientation.y, pose.orientation.z))
 
 
 def getslam(msg):
@@ -46,7 +44,7 @@ def getslam(msg):
     pose = msg.pose.pose
 
     slam.write('%s %f %f %f %f %f %f %f\n' % (str(timestamp/1e9), pose.position.x, pose.position.y, pose.position.z,
-                                              pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w))
+                                              pose.orientation.w, pose.orientation.x, pose.orientation.y, pose.orientation.z))
 
 
 if __name__ == "__main__":
